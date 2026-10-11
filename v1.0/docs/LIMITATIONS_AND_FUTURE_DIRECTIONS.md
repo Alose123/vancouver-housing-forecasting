@@ -6,61 +6,59 @@ The central weakness of Version 1.0 is **the amount and structure of data**. The
 
 ### 1. Small effective time-series sample
 
-The original development table has 717 housing rows, but this is only 239 monthly observations for each of three co-moving property categories. The final post-holdout panel has 252 monthly observations per category through December 2025.
+The development table has 717 housing rows, but this is only 239 monthly observations for each of three co-moving property categories.
 
-The three categories share the same dates and market environment, so 717 or 756 stacked rows are not equivalent to that many independent observations. Flexible ML, hyperparameter search, regime analysis and five-year forecasting all reuse the same limited history.
-
-The Stage 9 five-year experiment is especially constrained: only seven annual five-year origins exist per category/model, and those windows overlap.
+The three categories share the same dates and market environment, so 717 stacked rows are not equivalent to 717 independent observations. Flexible ML, hyperparameter search, regime analysis, and repeated model comparison all reuse the same limited history.
 
 ### 2. Aggregate benchmarks hide property-level heterogeneity
 
-Version 1 models MLS HPI **benchmark prices**, not raw monthly transaction averages. That is useful for market-level analysis because it reduces composition effects, but it cannot directly learn how individual sale prices vary with size, age, bedrooms, exact location, lot/building attributes or quality.
+Version 1 models MLS HPI **benchmark prices**, not raw monthly transaction averages. That is useful for market-level analysis because it reduces composition effects, but it cannot directly learn how individual sale prices vary with size, age, bedrooms, exact location, lot/building attributes, or quality.
 
 ### 3. Narrow geography/category coverage
 
-The validated final scope contains only GVR board apartment, townhouse and `single_family_mixed`. There is no exact City of Vancouver, Vancouver East/West, administrative Metro Vancouver or exact detached-only inference.
+The validated final scope contains only GVR board apartment, townhouse, and `single_family_mixed`. There is no exact City of Vancouver, Vancouver East/West, administrative Metro Vancouver, or exact detached-only inference.
 
 ### 4. Revised history, not real-time vintages
 
-Historical values come from a later revised snapshot. Reference-date leakage is controlled, but a 2018 backtest uses the current revised view of 2018 rather than necessarily the values analysts actually saw in 2018.
+Historical values come from a later revised snapshot. Reference-date leakage is controlled, but a historical backtest uses the current revised view of the past rather than necessarily the values analysts actually saw at that time.
 
 ### 5. Only one untouched holdout year
 
-2025 is a genuine untouched future test, but it is still only one market path with 12 serially dependent months per category. The AR failure is strong evidence about 2025, not proof that AR is always inferior to naive forecasting.
+2025 is a genuine untouched future test, but it is still only one market path with 12 serially dependent months per category. The AR failure is strong evidence about **this holdout**, not proof that AR is always inferior to naive forecasting.
 
 ### 6. Model-selection uncertainty
 
 Historical AR improvements of roughly 25% for apartment/townhouse reversed strongly in 2025. This demonstrates that model rankings can be unstable across market conditions and that a small validation history can reward relationships that do not persist.
 
-### 7. Long-horizon evidence is weak
+### 7. Limited external explanatory information
 
-The 2030 experiment uses seven overlapping five-year historical origins. Central projections and empirical ranges are therefore useful research outputs, not precise expected values or calibrated guarantees.
+Mortgage rates, listings, inventory, sales, supply, employment/income, population, and other demand/supply measures are absent from the final predictive models. Only historical policy rates were fully validated as an external candidate.
 
-### 8. Limited external explanatory information
+### 8. No fully probabilistic forecasting
 
-Mortgage rates, listings, inventory, sales, supply, employment/income, population and other demand/supply measures are absent from the final predictive models. Only historical policy rates were fully validated as an external candidate.
+The project evaluates point forecasts. It does not produce calibrated probability distributions or validated prediction intervals.
 
-### 9. No fully probabilistic forecasting
-
-The project reports point forecasts and historical-error-based ranges. Those ranges are not validated probability intervals.
-
-### 10. Descriptive, specification-sensitive regimes
+### 9. Descriptive, specification-sensitive regimes
 
 The two-state K-means regimes are descriptive summaries rather than proven latent economic states. Apartment assignments are materially sensitive to feature specification and sample endpoint.
 
-### 11. No causal identification
+### 10. No causal identification
 
-Forecast coefficients, policy associations and regime membership are predictive/descriptive. They do not identify causal effects.
+Forecast coefficients, policy associations, and regime membership are predictive/descriptive. They do not identify causal effects.
 
-### 12. Bounded agent autonomy
+### 11. Bounded agent autonomy
 
-The project implements specialized roles, shared state, routing, restricted tools, Critic review and human escalation, but many analytical choices are predeclared through stage contracts, registries, validation origins and thresholds. That makes the system a tightly orchestrated agentic workflow rather than a fully autonomous multi-agent scientist.
+The project implements specialized roles, shared state, routing, restricted tools, Critic review, and escalation, but many analytical choices are predeclared through stage contracts, registries, validation origins, and thresholds. That makes the system a tightly orchestrated agentic workflow rather than a fully autonomous multi-agent scientist.
 
-### 13. Public reproducibility is licensing-constrained
+This trade-off was intentional: hard restrictions protected against leakage and irreproducible search, but some restrictions also reduced the agents' freedom to formulate new analytical paths.
+
+### 12. Public reproducibility is licensing-constrained
 
 The private package preserves source material and generated outputs. Some housing material is not treated as openly redistributable, so the public GitHub release intentionally excludes those bytes.
 
 ## Future directions
+
+The highest-value improvement is **more informative data, not a more complicated model on the same small sample**.
 
 ### Priority 1 — expand cross-sectional housing data
 
@@ -70,33 +68,53 @@ Build a source-consistent panel:
 
 A target of roughly 15–30 local areas across multiple property types would make panel/hierarchical forecasting much more meaningful while preserving the Version 1 market-level question.
 
-### Priority 2 — real-time/vintage-aware data
+### Priority 2 — add transaction-level modelling as a separate layer
 
-Track `reference_month`, `release_date`, `vintage_date` and `available_at` so historical backtests reconstruct what was actually knowable at each origin.
+If a legally usable transaction-level dataset becomes available, a later version could model:
 
-### Priority 3 — economically justified predictors
+`transaction price ~ size + age + bedrooms + property type + location + time + ...`
 
-Add mortgage rates, sales, inventory, listings, starts/completions, permits, employment/income and demographic variables only when publication timing and historical definitions are defensible.
+Thousands of transactions would greatly improve cross-sectional learning and allow hedonic/ML property valuation. They would **not**, however, create thousands of independent observations of the market's macro time evolution; the number of calendar periods would still be limited.
 
-### Priority 4 — hierarchical/panel and ensemble models
+### Priority 3 — real-time/vintage-aware data
 
-Use broader data to compare common market factors with local effects, and evaluate ensembles instead of forcing a single historical winner.
+Track `reference_month`, `release_date`, `vintage_date`, and `available_at` so historical backtests reconstruct what was actually knowable at each origin.
 
-### Priority 5 — probabilistic forecasts
+### Priority 4 — economically justified predictors
 
-Add quantile or time-aware conformal forecasts with explicit historical coverage/calibration diagnostics.
+Add mortgage rates, sales, inventory, listings, starts/completions, permits, employment/income, and demographic variables only when publication timing and historical definitions are defensible.
 
-### Priority 6 — transaction-level/hedonic modelling
+### Priority 5 — hierarchical/panel and ensemble models
 
-If a legally usable transaction dataset becomes available, add a separate property-level valuation layer. Thousands of transactions would greatly improve cross-sectional learning, but would not by themselves create thousands of independent macro time observations.
+Use broader data to compare common market factors with local effects, and evaluate ensembles instead of forcing a single historical winner. Short-, medium-, and long-horizon forecasts should not be assumed to share one optimal model.
+
+### Priority 6 — probabilistic forecasts
+
+Once the dataset is richer, evaluate approaches such as quantile forecasting and time-aware conformal prediction. Report empirical coverage/calibration, not only point error.
 
 ### Priority 7 — more analytical agent discretion
 
-Keep hard guardrails such as leakage prevention and chronological validation, but let agents decide more of the scientific search path: diagnostics, candidate models, feature hypotheses and proposals for new methods.
+Keep hard guardrails fixed:
+
+- no holdout leakage;
+- chronological validation;
+- source integrity;
+- deterministic/reproducible tool execution;
+- bounded computation/retries;
+- Critic review;
+- approval for major capability changes.
+
+Give agents more discretion over:
+
+- which registered models merit testing;
+- which diagnostics to run;
+- which feature hypotheses to propose;
+- whether the current registry appears inadequate;
+- whether a new method should be proposed for approval.
 
 ### Priority 8 — preserve future observations
 
-Keep Version 1/Version 2 predictions frozen and evaluate them prospectively as new years arrive.
+Keep Version 1 and future Version 2 forecasts frozen and evaluate them prospectively as new observations arrive instead of repeatedly retuning and calling the same period an untouched test.
 
 ## Proposed Version 2 research question
 
