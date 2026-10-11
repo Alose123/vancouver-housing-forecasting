@@ -11,7 +11,7 @@ Version 1.0 is intentionally preserved as a baseline rather than rewritten as Ve
 
 ## Public-release note
 
-The public repository does **not** redistribute restricted third-party housing source files or the bulky generated run artifacts from the private research package. Version 1.0 includes the implementation, tests, stage contracts, methodological documentation, final report, and a sanitized source archive. See the Version 1.0 third-party/public-data notices for details.
+The public repository does **not** redistribute restricted third-party housing source files or the bulky generated run artifacts from the private research package. Version 1.0 publishes the final report, methodology, public-release notices, and a readable core implementation snapshot. A complete sanitized source bundle (excluding restricted third-party data and bulky generated outputs) is prepared separately because the connected GitHub writer cannot directly transfer local binary archives. See the Version 1.0 third-party/public-data notices for details.
 
 ## Core Version 1 lesson
 
