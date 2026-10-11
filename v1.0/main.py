@@ -28,7 +28,7 @@ def main():
         project=Path(__file__).resolve().parent
         state=RunStore(project/'outputs/stage8').load()
         print(json.dumps({'workflow_status':state.workflow_status,'stage8_complete':state.dataset_metadata.get('stage8_complete',False),
-                         'numeric_freeze':verify_numeric(project),'preserved_files':verify_prior(project),'stage9_allowed':False},indent=2))
+                         'numeric_freeze':verify_numeric(project),'preserved_files':verify_prior(project),'project_complete_after_stage8':True},indent=2))
         return
     if args.command == "stage7":
         from src.holdout.workflow import inspect
