@@ -1,0 +1,2 @@
+# The demo and test suite use Python 3.11+ standard library only.
+# Optional live backend: install requirements-llm.txt separately.
