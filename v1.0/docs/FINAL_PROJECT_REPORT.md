@@ -388,19 +388,7 @@ Stage test counts progressed through:
 
 These tests validate implementation and methodological controls; they do not certify forecasting accuracy.
 
-## 19. Portfolio-ready Summary
-
-I implemented a Python research system for GVR-board housing-market analysis with seven specialized agent roles, typed shared state, explicit routing, restricted deterministic tools, model registries, Critic checks, and human-in-the-loop governance.
-
-When the original nine-series dataset could not be validated through acceptable public routes, the project reduced scope rather than stitching incompatible sources. The final study used three GVR-board benchmark series and documented revised-history limitations.
-
-I built chronological time-series validation, fold-local preprocessing, immutable forecast freezes, and guarded holdout evaluation. Linear, regularized, autoregressive, and tree-based methods were compared against simple baselines. Models that improved historical validation nevertheless lost to naive forecasts on the untouched 2025 holdout, providing a concrete result about model generalization.
-
-The project also compared 90 historical clustering configurations, tested stability, and froze numerical regime definitions before assigning descriptive labels.
-
-The result is a reproducible research prototype demonstrating orchestration, leakage control, model validation, negative-result preservation, and bounded analytical decision-making—not production deployment or causal evidence about housing markets.
-
-## 20. Completion
+## 19. Completion
 
 **252/252 tests passed through Stage 8.**
 
