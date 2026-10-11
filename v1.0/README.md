@@ -32,13 +32,13 @@ The project uses authored agent roles and bounded decision logic. It is **not pr
 
 ## Public release contents
 
-The public Version 1 release contains the methodology and a sanitized source-code archive. Restricted third-party raw housing files, source PDFs and large generated run artifacts are intentionally omitted from the public repository.
+The public Version 1 release contains the methodology and a readable core source snapshot. Restricted third-party raw housing files, source PDFs and large generated run artifacts are intentionally omitted. A complete sanitized source bundle has also been prepared separately for upload as a release asset or for unpacking into this folder.
 
 - [Final project report](docs/FINAL_PROJECT_REPORT.md)
 - [Limitations and future directions](docs/LIMITATIONS_AND_FUTURE_DIRECTIONS.md)
 - [Public data notice](docs/PUBLIC_DATA_NOTICE.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
-- [Sanitized source archive instructions](archive/README.md)
+- [Sanitized source-bundle note](archive/README.md)
 
 ## Versioning
 
