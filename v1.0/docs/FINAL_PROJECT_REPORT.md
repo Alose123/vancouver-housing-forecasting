@@ -72,7 +72,7 @@ That panel could not be validated under the accepted data-access and source-cons
 
 The system identified historical-vintage problems and rejected unsafe stitching of incompatible releases.
 
-A strict pre-cutoff historical series could not be established from the available public material without relying on source combinations that were not methodologically defensible. Publisher contact was declined. The study therefore moved to an explicitly **retrospective revised-history design**.
+A strict pre-cutoff historical series could not be established from the available public material without relying on source combinations that were not methodologically defensible. Publisher contact was considered. It was declined. The study therefore moved to an explicitly **retrospective revised-history design**.
 
 Further acquisition was later terminated after legitimate public routes had been explored and an access-control boundary had been encountered. The blocked backend route was not retried or bypassed.
 
@@ -295,7 +295,7 @@ Several negative results are intentionally preserved.
 
 The original nine-series geographic/category scope was infeasible under the accepted public-access and consistency requirements.
 
-A strict historical vintage was not established. Publisher contact was declined, and unsafe stitching was rejected.
+A strict historical vintage was not established. Publisher contact was considered; it was declined, and unsafe stitching was rejected.
 
 Historically selected AR models failed badly relative to naive in the untouched 2025 year.
 
