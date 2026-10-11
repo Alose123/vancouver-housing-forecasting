@@ -1,12 +1,17 @@
-# Sanitized Version 1.0 source archive
+# Version 1.0 source bundle
 
-The complete **sanitized** Version 1 source package is stored in this directory as Base64 parts because the connected repository write interface accepts text reliably but not a local binary file handoff.
+The complete private research package contains third-party data and generated run artifacts that should not be redistributed publicly.
 
-To reconstruct the ZIP on macOS/Linux:
+A **sanitized Version 1.0 source bundle** has therefore been prepared separately. It contains the implementation, scripts, tests and dependency files while excluding restricted third-party `data/` and bulky generated `outputs/`.
 
-```bash
-cat vancouver-housing-forecasting-v1.0.zip.b64.part* | base64 --decode > vancouver-housing-forecasting-v1.0.zip
-unzip vancouver-housing-forecasting-v1.0.zip
-```
+The connected GitHub write interface used for this publication can reliably write UTF-8 repository files but does not support transferring the prepared local binary archive directly. To avoid committing an incomplete or corrupt multi-part archive, the binary bundle is not mirrored here.
 
-The archive contains the implementation, scripts, tests, stage contracts and documentation. It intentionally excludes restricted third-party `data/` and large generated `outputs/`, except public notice placeholders.
+The readable Version 1 research record is published directly in this repository:
+
+- `../README.md`
+- `../docs/FINAL_PROJECT_REPORT.md`
+- `../docs/LIMITATIONS_AND_FUTURE_DIRECTIONS.md`
+- `../docs/PUBLIC_DATA_NOTICE.md`
+- `../THIRD_PARTY_NOTICES.md`
+
+The sanitized archive can be uploaded later as a GitHub Release asset or unpacked into `v1.0/` without publishing the restricted source data.
