@@ -1,5 +1,7 @@
 # Vancouver Housing Forecasting — Version 1.0
 
+**Headline finding:** Autoregressive models improved historical validation for apartments and townhouses, but naive forecasts were more accurate on the untouched 2025 holdout. Apartment holdout MAE was $31,302 for AR versus $18,067 for naive; townhouse MAE was $89,155 versus $27,325.
+
 Version 1.0 is the completed research prototype for **Greater Vancouver REALTORS (GVR) board-level housing forecasting and historical market-regime analysis**.
 
 The project is intentionally presented as a research and engineering prototype rather than a production forecasting service. It combines deterministic Python orchestration, seven specialized analytical roles, typed shared state, restricted tools, model registries, Critic checks, human-in-the-loop decisions, chronological validation, immutable forecast freezes, and reproducibility tests.
